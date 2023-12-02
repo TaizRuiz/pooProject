@@ -116,7 +116,7 @@ public class AdministracionFeria{
                 System.out.println("Opcion ingresada no valida");
                 opcion="7";
                 break;
-        }
+            }
         }
 
     }
