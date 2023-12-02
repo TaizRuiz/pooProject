@@ -96,7 +96,7 @@ public class ProyectoFeria {
                                 descripcion = scInput.nextLine();
                                 
                                 System.out.println("Ingrese la fecha de inicio: ");
-                                LocalDate fechaI = new LocalDate(20,20,20);
+                                LocalDate fechaI =  new LocalDate(20,20,20);
                                 
                               
 
