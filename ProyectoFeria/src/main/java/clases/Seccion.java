@@ -17,8 +17,6 @@ public class Seccion {
         stands=new Stand[this.num_stands];
     }
 
- 
-
     public void setNum_stands(int num_stands) {
         this.num_stands = num_stands;
     }
@@ -33,7 +31,5 @@ public class Seccion {
 
     public int getNum_stands() {
        return this.num_stands;
-    }
-    
-    
+    } 
 }

@@ -8,18 +8,21 @@ import clases.Emprendedor;
 import clases.Feria;
 import clases.Seccion;
 import clases.Stand;
+import clases.Persona;
 import com.mycompany.proyectoferia.ProyectoFeria;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  *
  * @author USUARIO
  */
-public class AdministracionFeria
-{
-                           
+public class AdministracionFeria{
+      
+    //ArrayList<Socials> redesSocial = new ArrayList<>(); 
+    
     public static void info_ferias(){
         for (Feria f: ProyectoFeria.ferias){
             System.out.println(f.toString());
@@ -44,9 +47,7 @@ public class AdministracionFeria
         new_feria.getSecciones()[0]=new Seccion(sec1);
         new_feria.getSecciones()[1]=new Seccion(sec2);
         new_feria.getSecciones()[2]=new Seccion(sec3);
-        new_feria.getSecciones()[3]=new Seccion(sec4);
-        
-        
+        new_feria.getSecciones()[3]=new Seccion(sec4);   
     }
     
     public static void modificarFeria(Feria f){
@@ -133,4 +134,28 @@ public class AdministracionFeria
          }
         }
     }
+    
+    //OPCIONES 2
+    
+    public static void info_Empre(){
+        for (Emprendedor empre: ProyectoFeria.emprendedores){
+            System.out.println(empre.toString());
+        }
+    }
+    
+    
+    public static void registrarEmprendedor(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList redes){
+        if(direccion == null && sitio_web == null){
+            Emprendedor new_Emprendedor = new Emprendedor(identificacion, nombre, telefono, email, null, null, nombre_responsable, redes);
+        } else if(direccion == null){
+            Emprendedor new_Emprendedor = new Emprendedor(identificacion, nombre, telefono, email, null, sitio_web, nombre_responsable, redes);
+        } else if(sitio_web == null){
+            Emprendedor new_Emprendedor = new Emprendedor(identificacion, nombre, telefono, email, direccion, null, nombre_responsable, redes);
+        }  
+    }
+    
+    public static void modificar_emprendedor(Emprendedor e){
+    
+    }
+    
 }

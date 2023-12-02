@@ -30,6 +30,9 @@ public class Emprendedor extends Persona {
         super(identificacion, nombre, telefono, email, direccion, sitio_web, nombre_responsable, redes);
         this.descripcion_servicio=servicio;
     }
+    public Emprendedor(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes){
+        super(identificacion, nombre, telefono, email, direccion, sitio_web, nombre_responsable, redes);
+    }
 
     public String getDescripcion_servicio() {
         return descripcion_servicio;
