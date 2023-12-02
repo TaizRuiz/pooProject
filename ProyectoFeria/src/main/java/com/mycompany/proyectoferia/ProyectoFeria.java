@@ -26,6 +26,7 @@ public class ProyectoFeria {
         ferias=new ArrayList<>();
         emprendedores=new ArrayList<>();
         auspiciantes=new ArrayList<>();
+        cargarFeria();
         
         boolean salir = false;
         int opciones;
@@ -53,7 +54,7 @@ public class ProyectoFeria {
                         
                         System.out.println("---------------------------------------------");
                         AdministracionFeria.info_ferias();
-                        System.out.println("llamo metodo");
+                        
        System.out.println("""
                           1) ver info feria
                           2) registrar feria 
@@ -67,10 +68,11 @@ public class ProyectoFeria {
                         switch (op) {
 
                             case 1:
-                                String codigo=scInput.nextLine();
-                                Integer codigoFeria=Integer.parseInt(codigo);
-                                if (codigoFeria!=null){
-                                    AdministracionFeria.ver_info_feria(codigoFeria);
+                                System.out.println("entra");
+                                int codigo=scInput.nextInt();
+                                
+                                if (codigo!=0){
+                                    AdministracionFeria.ver_info_feria(codigo);
                                 }
                                 else{
                                     System.out.println("Ingrese un codigo valido");
@@ -79,6 +81,24 @@ public class ProyectoFeria {
 
                                 break;
                             case 2:
+                                
+                                // String nombre, String lugar, String descripcion, LocalDate fInicio, LocalDate fFin, String horario, int sec1, int sec2, int sec3, int sec4
+                                System.out.println("Ingrese el nombre de la feria: ");
+                                String nombre;
+                                nombre = scInput.nextLine();
+                                
+                                System.out.println("Ingrese el lugar de la feria: ");
+                                String feria;
+                                feria = scInput.nextLine();
+                                
+                                System.out.println("Ingrese una descripcion de la feria: ");
+                                String descripcion;
+                                descripcion = scInput.nextLine();
+                                
+                                System.out.println("Ingrese la fecha de inicio: ");
+                                LocalDate fechaI = new LocalDate(20,20,20);
+                                
+                              
 
                                 break;
                             case 3:
@@ -209,13 +229,12 @@ public class ProyectoFeria {
         
     }
     
-    public static ArrayList<Feria> cargarFeria(){
+    public static void cargarFeria(){
         //ArrayList<Feria> listaFeria =  new ArrayList<>();
         ferias.add(new Feria("agricola", LocalDate.now(), LocalDate.now(), "Guayaquil", "14:00 p.m", "Feria dedicada a la agricultura"));
         ferias.add(new Feria("Gastronomia", LocalDate.now(), LocalDate.now(), "Quito", "10:00 a.m", "Feria dedicada a la Gatronomia"));
         ferias.add(new Feria("Hogares", LocalDate.now(), LocalDate.now(), "Guayaquil", "9:00 a.m", "Feria dedicada a los Inmuebles"));
         
-        return ferias;
     }
     
 }

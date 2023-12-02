@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class Feria {
-    private static int cont_ferias=0;
+    private static int cont_ferias=1;
     private int codigo;
     private String nombre;
     private LocalDate fInicio;
@@ -32,6 +32,7 @@ public class Feria {
         this.lugar = lugar;
         this.horario = horario;
         this.descripcion=descripcion;
+        this.lAuspiciantes = new ArrayList<>();
     }
 
     
