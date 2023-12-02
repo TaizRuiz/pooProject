@@ -10,6 +10,7 @@ import clases.Feria;
 import clasesEstaticas.AdministracionFeria;
 import static clasesEstaticas.AdministracionFeria.info_ferias;
 import static clasesEstaticas.AdministracionFeria.ver_info_feria;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,6 +50,7 @@ public class ProyectoFeria {
                     int op;
             
                     while (!salir1){
+                        
                         System.out.println("---------------------------------------------");
                         AdministracionFeria.info_ferias();
                         System.out.println("llamo metodo");
@@ -207,5 +209,14 @@ public class ProyectoFeria {
         
     }
     
+    public static ArrayList<Feria> cargarFeria(){
+        //ArrayList<Feria> listaFeria =  new ArrayList<>();
+        ferias.add(new Feria("agricola", LocalDate.now(), LocalDate.now(), "Guayaquil", "14:00 p.m", "Feria dedicada a la agricultura"));
+        ferias.add(new Feria("Gastronomia", LocalDate.now(), LocalDate.now(), "Quito", "10:00 a.m", "Feria dedicada a la Gatronomia"));
+        ferias.add(new Feria("Hogares", LocalDate.now(), LocalDate.now(), "Guayaquil", "9:00 a.m", "Feria dedicada a los Inmuebles"));
+        
+        return ferias;
+    }
     
 }
+
