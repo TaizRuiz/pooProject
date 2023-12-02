@@ -7,6 +7,7 @@ package com.mycompany.proyectoferia;
 import clases.Auspiciante;
 import clases.Emprendedor;
 import clases.Feria;
+import clases.Seccion;
 import clasesEstaticas.AdministracionFeria;
 import static clasesEstaticas.AdministracionFeria.info_ferias;
 import static clasesEstaticas.AdministracionFeria.ver_info_feria;
@@ -81,27 +82,58 @@ public class ProyectoFeria {
 
                                 break;
                             case 2:
-                                
+                                Scanner sc = new Scanner(System.in);
                                 // String nombre, String lugar, String descripcion, LocalDate fInicio, LocalDate fFin, String horario, int sec1, int sec2, int sec3, int sec4
                                 System.out.println("Ingrese el nombre de la feria: ");
-                                String nombre;
-                                nombre = scInput.nextLine();
+                                String nombreFeria;
+                                nombreFeria = sc.nextLine();
                                 
                                 System.out.println("Ingrese el lugar de la feria: ");
                                 String feria;
-                                feria = scInput.nextLine();
+                                feria = sc.nextLine();
                                 
                                 System.out.println("Ingrese una descripcion de la feria: ");
                                 String descripcion;
-                                descripcion = scInput.nextLine();
+                                descripcion = sc.nextLine();
                                 
-                                System.out.println("Ingrese la fecha de inicio: ");
-                                LocalDate fechaI = new LocalDate(20,20,20);
+                                System.out.println("Ingrese la fecha de inicio (AA-MM-DD): ");
+                                String fechaIni;
+                                fechaIni = sc.nextLine();
+                                String [] fecha = fechaIni.split("-");
+                                LocalDate fechaI = LocalDate.of(Integer.parseInt(fecha[0]), Integer.parseInt(fecha[1]), Integer.parseInt(fecha[2]));
                                 
-                              
-
+                                System.out.println("Ingrese la fecha de fin (AA-MM-DD): ");
+                                String fechaFin;
+                                fechaFin = sc.nextLine();
+                                String [] fecha2 = fechaFin.split("-");
+                                LocalDate fechaF = LocalDate.of(Integer.parseInt(fecha2[0]), Integer.parseInt(fecha2[1]), Integer.parseInt(fecha2[2]));
+                                
+                                System.out.println("Ingrese el horario: ");
+                                String horario;
+                                horario = sc.nextLine();
+                                
+                                System.out.println("Ingrese cantidad de stand seccion 1:");
+                                int sec1;
+                                sec1 = sc.nextInt();
+                                System.out.println("Ingrese cantidad de stand seccion 2:");
+                                int sec2;
+                                sec2 = sc.nextInt();
+                                System.out.println("Ingrese cantidad de stand seccion 3:");
+                                int sec3;
+                                sec3 = sc.nextInt();
+                                System.out.println("Ingrese cantidad de stand seccion 4:");
+                                int sec4;
+                                sec4 = sc.nextInt();
+                                
+                                AdministracionFeria.registrarFeria(nombreFeria, feria, descripcion, fechaI, fechaF, horario, sec1, sec2, sec3, sec4);
+                                                          
                                 break;
                             case 3:
+                                AdministracionFeria.info_ferias();
+                                System.out.println("Ingrese el numero de feria que desea modificar: ");
+                                int numero;
+                                numero = scInput.nextInt();
+                                AdministracionFeria.modificarFeria(ferias.get(numero-1));
 
                                 break;
                             case 4:
@@ -231,9 +263,21 @@ public class ProyectoFeria {
     
     public static void cargarFeria(){
         //ArrayList<Feria> listaFeria =  new ArrayList<>();
-        ferias.add(new Feria("agricola", LocalDate.now(), LocalDate.now(), "Guayaquil", "14:00 p.m", "Feria dedicada a la agricultura"));
-        ferias.add(new Feria("Gastronomia", LocalDate.now(), LocalDate.now(), "Quito", "10:00 a.m", "Feria dedicada a la Gatronomia"));
-        ferias.add(new Feria("Hogares", LocalDate.now(), LocalDate.now(), "Guayaquil", "9:00 a.m", "Feria dedicada a los Inmuebles"));
+        Feria feria1 = new Feria("agricola", LocalDate.now(), LocalDate.now(), "Guayaquil", "14:00 p.m", "Feria dedicada a la agricultura");
+        ferias.add(feria1);
+        feria1.getSecciones()[0] = new Seccion(2);
+        feria1.getSecciones()[1] = new Seccion(2);
+        feria1.getSecciones()[2] = new Seccion(2);
+        feria1.getSecciones()[3] = new Seccion(2);
+         
+        Feria feria2 = new Feria("Gastronomia", LocalDate.now(), LocalDate.now(), "Quito", "10:00 a.m", "Feria dedicada a la Gatronomia");
+        ferias.add(feria2);
+        feria2.getSecciones()[0] = new Seccion(1);
+        feria2.getSecciones()[1] = new Seccion(2);
+        feria2.getSecciones()[2] = new Seccion(3);
+        feria2.getSecciones()[3] = new Seccion(4);
+        
+        
         
     }
     
