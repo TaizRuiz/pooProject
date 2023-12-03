@@ -8,6 +8,7 @@ import clases.Auspiciante;
 import clases.Emprendedor;
 import clases.Feria;
 import clases.Seccion;
+import clases.Socials;
 import clasesEstaticas.AdministracionFeria;
 import static clasesEstaticas.AdministracionFeria.info_ferias;
 import static clasesEstaticas.AdministracionFeria.ver_info_feria;
@@ -136,7 +137,11 @@ public class ProyectoFeria {
 
                                 break;
                             case 4:
-
+                                System.out.println("Ingrese el codigo de feria: ");
+                                AdministracionFeria.info_ferias();
+                                int numeroFeria;
+                                numeroFeria = scInput.nextInt();
+                                AdministracionFeria.info_emprendedores(ferias.get(numeroFeria-1));
                                 break;
                             case 5:
                                 System.out.println("Saliendo...");
@@ -275,8 +280,12 @@ public class ProyectoFeria {
         feria2.getSecciones()[1] = new Seccion(2);
         feria2.getSecciones()[2] = new Seccion(3);
         feria2.getSecciones()[3] = new Seccion(4);
-        
-        
+        ArrayList<Socials> redes=new ArrayList<>();
+        redes.add(new Socials("Facebook","user"));
+        Emprendedor e1=new Emprendedor("0914463815","Emprendimiento1", "0981383239","dtruiz@live.com","Dafne",redes,"Emprendimiento");
+        feria1.getSecciones()[0].getStands()[0].setPersona_responsable(e1);
+        feria1.getSecciones()[0].getStands()[0].setFechaAsignacion(LocalDate.now());
+       
         
     }
     

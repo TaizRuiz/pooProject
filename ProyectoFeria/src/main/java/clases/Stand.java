@@ -11,20 +11,22 @@ import java.time.LocalDate;
  * @author USUARIO
  */
 public class Stand {
-    private static int num_stand=0;
+    private static int num_codigo=1;
     private int codigo;
     private LocalDate fechaAsignacion;
     private Persona persona_responsable;
     public Stand (){
-        codigo=(num_stand++);
+        this.codigo=(num_codigo++);
+        this.persona_responsable=null;
+        
     }
 
     public static int getNum_stand() {
-        return num_stand;
+        return num_codigo;
     }
 
     public static void setNum_stand(int num_stand) {
-        Stand.num_stand = num_stand;
+        Stand.num_codigo = num_stand;
     }
 
     public int getCodigo() {

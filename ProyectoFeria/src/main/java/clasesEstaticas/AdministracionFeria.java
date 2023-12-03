@@ -137,18 +137,23 @@ public class AdministracionFeria{
         }
 
     }
-    
     public static void info_emprendedores(Feria f){
         int cont=0;
         for (Seccion s: f.getSecciones()){
          cont++;
-         int num_seccion=cont;
-         for (Stand st: s.getStands()){
-             System.out.println("Codigo de stand:" +String.valueOf(st.getCodigo()));
-             System.out.println("Seccion: "+num_seccion);
-             Emprendedor e=(Emprendedor)st.getPersona_responsable();
-             System.out.println(e.toString());
-         }
+            
+            for (Stand st: s.getStands()){
+                if (st.getPersona_responsable()!=null){
+                    System.out.println("Seccion" +"["+cont+"]"+ "stand "+"["+st.getCodigo()+"] :");
+                    Emprendedor e=(Emprendedor)st.getPersona_responsable();
+                    String nombre_emprendimiento=e.getNombre();
+                    String descripcion=e.getDescripcion_servicio();
+                    System.out.println("Nombre de emprendimiento:"+nombre_emprendimiento);
+                    System.out.println("Descripcion de emprendimiento: "+descripcion);
+                    
+                } 
+               
+            }
         }
     }
     

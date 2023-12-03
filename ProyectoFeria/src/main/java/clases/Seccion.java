@@ -15,6 +15,9 @@ public class Seccion {
     public Seccion(int num_stands) {
         this.num_stands = num_stands;
         stands=new Stand[this.num_stands];
+        for (int i=0;i<this.num_stands;i++){
+            stands[i]=new Stand();
+        }
     }
 
     public void setNum_stands(int num_stands) {
