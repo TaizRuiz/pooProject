@@ -280,16 +280,16 @@ public class ProyectoFeria {
                                     Socials social = new Socials(red,nomb);
                                     redes.add(social);
                                 }
-                                System.out.println("Ingrese yes si incluye stands y no si no incluye:");
+                                /*System.out.println("Ingrese yes si incluye stands y no si no incluye:");
                                 String boo = sc2.nextLine();
                                 
                                 boolean incluye_stands = false;
                                 
                                 if(boo == "yes"){
                                     incluye_stands = true;
-                                }
+                                }*/
                                 
-                                AdministracionAuspiciantes.registrar_auspiciante(id, nombre, nombre_responsable, telefono, correo, direccion, sitio, servicio, redes, incluye_stands);
+                                AdministracionAuspiciantes.registrar_auspiciante(id, nombre, nombre_responsable, telefono, correo, direccion, sitio, servicio, redes);
                                        
                                        
                                 
@@ -302,6 +302,14 @@ public class ProyectoFeria {
                                 AdministracionAuspiciantes.modificarAuspiciante(auspiciantes.get(numero-1));
                                 break;
                             case 3:
+                                Scanner sc3 = new Scanner(System.in);
+                                System.out.println("Ingrese el codigo de la feria: ");
+                                int codigo_feri = sc3.nextInt();
+                                sc3.nextLine();
+                                System.out.println("Ingrese la identificacion del auspiciante: ");
+                                String id_a = sc3.nextLine();
+                                AdministracionAuspiciantes.asignarFeria(codigo_feri, id_a);
+                                                                
                                 break;
                             case 4:
                                 salir3 = true;
