@@ -10,8 +10,10 @@ import clases.Feria;
 import clases.Seccion;
 import clases.Socials;
 import clasesEstaticas.AdministracionFeria;
+import clasesEstaticas.AdministracionAuspiciantes;
 import static clasesEstaticas.AdministracionFeria.info_ferias;
 import static clasesEstaticas.AdministracionFeria.ver_info_feria;
+import enums.TipoServicio;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -191,8 +193,11 @@ public class ProyectoFeria {
                     int op3;
                     
                     while(!salir3){
+                        AdministracionAuspiciantes.info_Auspiciante();
                         System.out.println("---------------------------------------------");
-                        System.out.println("Llamo metodo");
+                        /*for(Auspiciante auspici: auspiciantes){
+                            System.out.println(auspici.toString());
+                        }*/
                         System.out.println("""
                           1) Registrar auspiciante
                           2) Editar auspiciante
@@ -203,8 +208,98 @@ public class ProyectoFeria {
                         op3=scInput.nextInt();
                         switch(op3){
                             case 1:
+                                // String id, String nombre, String nombre_responsable, String telefono, String email, String direccion, String sitio_web, TipoServicio servicio,  ArrayList<Socials
+                                Scanner sc = new Scanner(System.in);
+                                System.out.println("Ingrese su identificacion: ");
+                                String id;
+                                id = sc.nextLine();
+                                
+                                System.out.println("Ingrese el nombre de la empresa: ");
+                                String nombre;
+                                nombre = sc.nextLine();
+                                
+                                System.out.println("Ingrese el nombre de responsable: ");
+                                String nombre_responsable;
+                                nombre_responsable = sc.nextLine();
+                                
+                                System.out.println("Ingrese su numero de telefono: ");
+                                String telefono;
+                                telefono = sc.nextLine();
+                                
+                                System.out.println("Ingrese su correo: ");
+                                String correo;
+                                correo = sc.nextLine();
+                                
+                                System.out.println("Ingrese su direccion: ");
+                                String direccion;
+                                direccion = sc.nextLine();
+                                
+                                System.out.println("Ingrese el sitio web: ");
+                                String sitio;
+                                sitio = sc.nextLine();
+                                
+                                System.out.println("Seleccione el tipo de servicio que ofrece");
+                                System.out.println(""" 
+                                                   1) ALIMENTACIÓN
+                                                   2) EDUCACIÓN
+                                                   3) SALUD
+                                                   4)VESTIMENTA
+                                                   """);
+                                TipoServicio servicio = null;
+                                int opcionLi;
+                                opcionLi = sc.nextInt();
+                                switch(opcionLi){
+                                    case 1:
+                                        servicio = TipoServicio.ALIMENTACIÓN;
+                                        break;
+                                    case 2:
+                                        servicio = TipoServicio.EDUCACIÓN;
+                                        break;
+                                    case 3:
+                                        servicio = TipoServicio.SALUD;
+                                        break;
+                                    case 4:
+                                        servicio = TipoServicio.VESTIMENTA;
+                                        break;
+                                    default:
+                                        System.out.println("Ingrese solo opciones del 1 al 4:");
+                                        break;
+                                
+                                }
+                                System.out.println("Ingrese el numero de red social que tiene: ");
+                                int nume = sc.nextInt();
+                                ArrayList<Socials> redes = new ArrayList<>();
+                                Scanner sc2 = new Scanner(System.in);
+                                for(int i = 1; i <= nume; i ++){
+                                    
+                                    System.out.println("Ingrese el nombre de la red social: ");
+                                    String red = sc2.nextLine();
+                                    System.out.println("Ingrese que nombre de usuario tiene esa red social: ");
+                                    String nomb = sc2.nextLine();
+                                    
+                                    Socials social = new Socials(red,nomb);
+                                    redes.add(social);
+                                }
+                                System.out.println("Ingrese yes si incluye stands y no si no incluye:");
+                                String boo = sc2.nextLine();
+                                
+                                boolean incluye_stands = false;
+                                
+                                if(boo == "yes"){
+                                    incluye_stands = true;
+                                }
+                                
+                                AdministracionAuspiciantes.registrar_auspiciante(id, nombre, nombre_responsable, telefono, correo, direccion, sitio, servicio, redes, incluye_stands);
+                                       
+                                       
+                                
                                 break;
                             case 2:
+                                AdministracionAuspiciantes.info_Auspiciante();
+                                 System.out.println("Ingrese el numero de el auspiciante que desea modificar: ");
+                                int numero;
+                                numero = scInput.nextInt();
+                                AdministracionAuspiciantes.modificarAuspiciante(auspiciantes.get(numero-1));
                                 break;
                             case 3:
                                 break;
@@ -285,9 +380,25 @@ public class ProyectoFeria {
         Emprendedor e1=new Emprendedor("0914463815","Emprendimiento1", "0981383239","dtruiz@live.com","Dafne",redes,"Emprendimiento");
         feria1.getSecciones()[0].getStands()[0].setPersona_responsable(e1);
         feria1.getSecciones()[0].getStands()[0].setFechaAsignacion(LocalDate.now());
+        
+        Emprendedor e2=new Emprendedor("09506375557","Emprendimiento2", "0968933048","kerimaga@espol.edu.ec","Kevin",redes,"Emprendimiento");
+        feria1.getSecciones()[1].getStands()[1].setPersona_responsable(e2);
+        feria1.getSecciones()[1].getStands()[1].setFechaAsignacion(LocalDate.now());
        
+        Emprendedor e3=new Emprendedor("0978787820","Emprendimiento3", "09787878","kerimaga@espol.edu.ec","Ricardo",redes,"Emprendimiento");
+        feria1.getSecciones()[2].getStands()[1].setPersona_responsable(e3);
+        feria1.getSecciones()[2].getStands()[1].setFechaAsignacion(LocalDate.now());
+        
+        Emprendedor e4=new Emprendedor("0993939393","Emprendimiento3", "0978989632","kerimaga@espol.edu.ec","Thayz",redes,"Emprendimiento");
+        feria1.getSecciones()[3].getStands()[0].setPersona_responsable(e4);
+        feria1.getSecciones()[3].getStands()[0].setFechaAsignacion(LocalDate.now());
+        //String identificacion, String nombre, String telefono, String email, String nombre_de_responsable, ArrayList<Socials> redes_sociales, String sector_cubierto
+        Auspiciante auspiciante = new Auspiciante("09121212", "ESPOL", "1234567891", "kevinricki-2002@hotmail.com", "Kevin", redes, TipoServicio.ALIMENTACIÓN);
+        auspiciante.setIncluye_stand(true);
+        feria1.getlAuspiciantes().add(auspiciante);
         
     }
+    
     
 }
 

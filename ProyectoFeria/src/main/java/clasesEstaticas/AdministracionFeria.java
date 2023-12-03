@@ -168,7 +168,7 @@ public class AdministracionFeria{
     
     public static void registrarEmprendedor(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList redes){
         if(direccion == null && sitio_web == null){
-            Emprendedor new_Emprendedor = new Emprendedor(identificacion, nombre, telefono, email, null, null, nombre_responsable, redes);
+            Emprendedor new_Emprendedor = new Emprendedor(identificacion, nombre, telefono, email, "", "", nombre_responsable, redes);
         } else if(direccion == null){
             Emprendedor new_Emprendedor = new Emprendedor(identificacion, nombre, telefono, email, null, sitio_web, nombre_responsable, redes);
         } else if(sitio_web == null){

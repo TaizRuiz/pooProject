@@ -1,9 +1,11 @@
 clases\Seccion.class
 clases\Socials.class
 clases\Stand.class
+clasesEstaticas\AdministracionAuspiciantes.class
 clases\Feria.class
 clases\Emprendedor.class
 clases\Auspiciante.class
 clases\Persona.class
 clasesEstaticas\AdministracionFeria.class
 com\mycompany\proyectoferia\ProyectoFeria.class
+enums\TipoServicio.class
