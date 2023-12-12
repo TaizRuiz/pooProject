@@ -110,8 +110,10 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + '}';
+        return "Persona{" + "identificacion=" + identificacion + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + ", direccion=" + direccion + ", sitio_web=" + sitio_web + ", nombre_de_responsable=" + nombre_de_responsable + ", redes_sociales=" + redes_sociales + '}';
     }
+
+    
     
     
     

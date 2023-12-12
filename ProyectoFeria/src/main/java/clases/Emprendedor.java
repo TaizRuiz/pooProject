@@ -13,15 +13,17 @@ import java.util.ArrayList;
 public class Emprendedor extends Persona {
     
     private String descripcion_servicio;
-    
+    //id, nombre, telefono, email, nomResponsable, redes, descripcion
     public Emprendedor(String identificacion, String nombre, String telefono, String email, String nombre_de_responsable, ArrayList<Socials> redes_sociales, String des_service){
         super(identificacion, nombre, telefono, email, nombre_de_responsable, redes_sociales);
         this.descripcion_servicio=des_service;
     }
+    
      public Emprendedor(String identificacion, String nombre, String telefono, String email, String direccion, String nombre_de_responsable, ArrayList<Socials> redes_sociales, String servicio) {
       super(identificacion, nombre, telefono, email, direccion, nombre_de_responsable, redes_sociales);
       this.descripcion_servicio=servicio;
     }
+     //redes, id, nombre, telefono, email, sitioWeb, nomResponsable, descripcion
     public Emprendedor( ArrayList<Socials> socials,String id, String nom, String tel, String email, String sitio, String nomRespon, String servicio){
        super(socials, id, nom, tel, email, sitio, nomRespon);
        this.descripcion_servicio=servicio;
@@ -44,9 +46,11 @@ public class Emprendedor extends Persona {
 
     @Override
     public String toString() {
-       
-        return "Emprendedor{" + "descripcion_servicio=" + descripcion_servicio + "nombre emprendimiento: "+this.getDescripcion_servicio()+'}';
+        String s=super.toString();
+        return   "Emprendedor{"+s + "descripcion_servicio=" + descripcion_servicio + '}';
     }
+
+    
     
     
 }

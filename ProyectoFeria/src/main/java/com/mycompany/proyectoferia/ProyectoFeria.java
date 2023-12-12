@@ -11,6 +11,7 @@ import clases.Seccion;
 import clases.Socials;
 import clasesEstaticas.AdministracionFeria;
 import clasesEstaticas.AdministracionAuspiciantes;
+import clasesEstaticas.AdministracionEmprendedores;
 import static clasesEstaticas.AdministracionFeria.info_ferias;
 import static clasesEstaticas.AdministracionFeria.ver_info_feria;
 import enums.TipoServicio;
@@ -160,8 +161,9 @@ public class ProyectoFeria {
                     int op2;
                     
                     while(!salir2){
+                        
                         System.out.println("---------------------------------------------");
-                        System.out.println("Llamo metodo");
+                        AdministracionEmprendedores.infoEmprendedores();
                         System.out.println("""
                           1) Registrar emprendedor
                           2) Editar emprendedor
@@ -171,11 +173,66 @@ public class ProyectoFeria {
                     op2=scInput.nextInt();
                         switch(op2){
                             case 1:
-                                System.out.println("opcion 1");
+                                 Scanner sc = new Scanner(System.in);
+                                System.out.println("Ingrese su identificacion: ");
+                                String id;
+                                id = sc.nextLine();
+                                
+                                System.out.println("Ingrese el nombre de la empresa: ");
+                                String nombre;
+                                nombre = sc.nextLine();
+                                
+                                System.out.println("Ingrese el nombre de responsable: ");
+                                String nombre_responsable;
+                                nombre_responsable = sc.nextLine();
+                                
+                                System.out.println("Ingrese su numero de telefono: ");
+                                String telefono;
+                                telefono = sc.nextLine();
+                                
+                                System.out.println("Ingrese su correo: ");
+                                String correo;
+                                correo = sc.nextLine();
+                                
+                                System.out.println("Ingrese su direccion: ");
+                                String direccion;
+                                direccion = sc.nextLine();
+                                
+                                System.out.println("Ingrese el sitio web: ");
+                                String sitio;
+                                sitio = sc.nextLine();
+                                
+                                System.out.println("Ingrese descripcion: ");
+                                String descripcion;
+                                descripcion = sc.nextLine();
+                         
+                                System.out.println("Ingrese el numero de red social que tiene: ");
+                                int nume = sc.nextInt();
+                                ArrayList<Socials> redes = new ArrayList<>();
+                                Scanner sc2 = new Scanner(System.in);
+                                for(int i = 1; i <= nume; i ++){
+                                    
+                                    System.out.println("Ingrese el nombre de la red social: ");
+                                    String red = sc2.nextLine();
+                                    System.out.println("Ingrese que nombre de usuario tiene esa red social: ");
+                                    String nomb = sc2.nextLine();
+                                    
+                                    Socials social = new Socials(red,nomb);
+                                    redes.add(social);
+                                }
+                               
+                                //String id, String nombre, String telefono, String email, String direccion, String sitioWeb, String nomResponsable, String descripcion, ArrayList<Socials> redes
+                                AdministracionEmprendedores.registrarEmprendedor(id, nombre,telefono, correo, direccion, sitio, nombre_responsable, descripcion, redes);
+                                 
                                 break;
                             case 2:
-                                System.out.println("opcion 2");
+                                AdministracionEmprendedores.infoEmprendedores();
+                                System.out.println("Ingrese el numero de el Emprendedor que desea modificar: ");
+                                int numero;
+                                numero = scInput.nextInt();
+                                AdministracionEmprendedores.modificarEmprendedor(emprendedores.get(numero-1));
                                 break;
+                                
                             case 3:
                                 salir2 = true;
                                 System.out.println("Saliendo ...");
@@ -296,7 +353,7 @@ public class ProyectoFeria {
                                 break;
                             case 2:
                                 AdministracionAuspiciantes.info_Auspiciante();
-                                 System.out.println("Ingrese el numero de el auspiciante que desea modificar: ");
+                                System.out.println("Ingrese el numero de el auspiciante que desea modificar: ");
                                 int numero;
                                 numero = scInput.nextInt();
                                 AdministracionAuspiciantes.modificarAuspiciante(auspiciantes.get(numero-1));
@@ -385,21 +442,26 @@ public class ProyectoFeria {
         feria2.getSecciones()[3] = new Seccion(4);
         ArrayList<Socials> redes=new ArrayList<>();
         redes.add(new Socials("Facebook","user"));
-        Emprendedor e1=new Emprendedor("0914463815","Emprendimiento1", "0981383239","dtruiz@live.com","Dafne",redes,"Emprendimiento");
+        Emprendedor e1=new Emprendedor("0914463815","Tuty", "0981383239","dtruiz@live.com","Dafne",redes,"Emprendimiento");
         feria1.getSecciones()[0].getStands()[0].setPersona_responsable(e1);
         feria1.getSecciones()[0].getStands()[0].setFechaAsignacion(LocalDate.now());
+        emprendedores.add(e1);
         
-        Emprendedor e2=new Emprendedor("09506375557","Emprendimiento2", "0968933048","kerimaga@espol.edu.ec","Kevin",redes,"Emprendimiento");
+        Emprendedor e2=new Emprendedor("09506375557","Tia", "0968933048","kerimaga@espol.edu.ec","Kevin",redes,"Emprendimiento");
         feria1.getSecciones()[1].getStands()[1].setPersona_responsable(e2);
         feria1.getSecciones()[1].getStands()[1].setFechaAsignacion(LocalDate.now());
+        emprendedores.add(e2);
        
-        Emprendedor e3=new Emprendedor("0978787820","Emprendimiento3", "09787878","kerimaga@espol.edu.ec","Ricardo",redes,"Emprendimiento");
+        Emprendedor e3=new Emprendedor("0978787820","Espol", "09787878","kerimaga@espol.edu.ec","Ricardo",redes,"Emprendimiento");
         feria1.getSecciones()[2].getStands()[1].setPersona_responsable(e3);
         feria1.getSecciones()[2].getStands()[1].setFechaAsignacion(LocalDate.now());
+        emprendedores.add(e3);
         
-        Emprendedor e4=new Emprendedor("0993939393","Emprendimiento3", "0978989632","kerimaga@espol.edu.ec","Thayz",redes,"Emprendimiento");
+        Emprendedor e4=new Emprendedor("0993939393","Comisariato", "0978989632","kerimaga@espol.edu.ec","Thayz",redes,"Emprendimiento");
         feria1.getSecciones()[3].getStands()[0].setPersona_responsable(e4);
         feria1.getSecciones()[3].getStands()[0].setFechaAsignacion(LocalDate.now());
+        emprendedores.add(e4);
+        
         //String identificacion, String nombre, String telefono, String email, String nombre_de_responsable, ArrayList<Socials> redes_sociales, String sector_cubierto
         Auspiciante auspiciante = new Auspiciante("09121212", "ESPOL", "1234567891", "kevinricki-2002@hotmail.com", "Kevin", redes, TipoServicio.ALIMENTACIÓN);
         auspiciante.setIncluye_stand(true);

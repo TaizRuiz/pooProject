@@ -187,7 +187,6 @@ public class AdministracionAuspiciantes {
                 } 
             }
         } 
-         
 
         
         // No olvides cerrar el Scanner al final

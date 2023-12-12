@@ -52,6 +52,10 @@ public class Stand {
     public void setPersona_responsable(Persona persona_responsable) {
         this.persona_responsable = persona_responsable;
     }
+    
+    public String toString(){
+        return "Stand{codigo: "+this.codigo+" fecha_asignacion: "+this.fechaAsignacion+" infopersona_responsable: "+this.persona_responsable.toString();
+    }
 
     
     
