@@ -28,12 +28,13 @@ public class Emprendedor extends Persona {
        super(socials, id, nom, tel, email, sitio, nomRespon);
        this.descripcion_servicio=servicio;
     }
-    public Emprendedor(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes, String servicio){
-        super(identificacion, nombre, telefono, email, direccion, sitio_web, nombre_responsable, redes);
+                           //id, nombre, telefono, email, direccion, sitioWeb, nomResponsable, redes, descripcion
+    public Emprendedor(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes_sociales, String servicio){
+        super(identificacion, nombre, telefono, email, direccion, sitio_web, nombre_responsable, redes_sociales);
         this.descripcion_servicio=servicio;
     }
-    public Emprendedor(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes){
-        super(identificacion, nombre, telefono, email, direccion, sitio_web, nombre_responsable, redes);
+    public Emprendedor(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes_sociales){
+        super(identificacion, nombre, telefono, email, direccion, sitio_web, nombre_responsable, redes_sociales);
     }
 
     public String getDescripcion_servicio() {

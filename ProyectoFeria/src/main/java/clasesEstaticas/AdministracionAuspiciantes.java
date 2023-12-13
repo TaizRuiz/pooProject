@@ -31,18 +31,28 @@ public class AdministracionAuspiciantes {
         }
     }
     
+    public static void info_Ausp(){
+        for(Auspiciante aus: ProyectoFeria.auspiciantes){
+            System.out.println(aus.toString());
+        }
+    }
+    
     public static void registrar_auspiciante(String id, String nombre, String nombre_responsable, String telefono, String email, String direccion, String sitio_web, TipoServicio servicio,  ArrayList<Socials> redes_sociales){
         if((direccion == null || direccion == "") && (sitio_web == null || sitio_web == "")){
             Auspiciante new_Auspiciante = new Auspiciante(id, nombre, telefono, email, nombre_responsable, redes_sociales, servicio);
             //new_Auspiciante.setIncluye_stand(incluye);
             ProyectoFeria.auspiciantes.add(new_Auspiciante);
         } else if(direccion == null || direccion == "" ){
+            Auspiciante new_Auspiciante = new Auspiciante(redes_sociales, id, nombre, telefono, email, sitio_web, nombre_responsable, servicio);
+            //new_Auspiciante.setIncluye_stand(incluye);
+            ProyectoFeria.auspiciantes.add(new_Auspiciante);
+        } else if(sitio_web == null || sitio_web == ""){ //id, nombre, telefono, email, direccion, nombre_responsable, redes_sociales, servicio
             Auspiciante new_Auspiciante = new Auspiciante(id, nombre, telefono, email, direccion, nombre_responsable, redes_sociales, servicio);
             //new_Auspiciante.setIncluye_stand(incluye);
             ProyectoFeria.auspiciantes.add(new_Auspiciante);
-        } else if(sitio_web == null || sitio_web == ""){
-            Auspiciante new_Auspiciante = new Auspiciante(redes_sociales, id, nombre, telefono, email, sitio_web, nombre_responsable, servicio);
-            //new_Auspiciante.setIncluye_stand(incluye);
+        }else {
+            //String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes, TipoServicio sector_cubierto
+            Auspiciante new_Auspiciante = new Auspiciante(id, nombre, telefono, email, direccion, sitio_web, nombre_responsable, redes_sociales, servicio);
             ProyectoFeria.auspiciantes.add(new_Auspiciante);
         }
         
@@ -169,28 +179,21 @@ public class AdministracionAuspiciantes {
         for (Feria f: ProyectoFeria.ferias){
             if(f.getCodigo() == codigo){
                 for (Auspiciante A: ProyectoFeria.auspiciantes){
-                    if(A.getIdentificacion() == id){
+                    if(A.getIdentificacion().equals(id)){
                         System.out.println("Descripcion de lo que cubre el auspicio: ");
                         String descripcion = sc.nextLine();
                         System.out.println("Incluye stand en la feria: (Si/No)");
                         String boo = sc.nextLine();
-                                
-                        boolean incluye_stands = false;
-                                
+                        boolean incluye_stands = false;     
                         if(boo == "Si"){
                             incluye_stands = true;
                         }
-                        
                         A.setIncluye_stand(incluye_stands);
                         f.getlAuspiciantes().add(A);
                     }
                 } 
             }
         } 
-
-        
-        // No olvides cerrar el Scanner al final
-        sc.close();
     }
     
 }

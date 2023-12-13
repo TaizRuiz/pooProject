@@ -25,7 +25,7 @@ public class AdministracionEmprendedores {
     
     public static void infoEmprendedores(){
         for(Emprendedor empre: ProyectoFeria.emprendedores){
-            System.out.println(empre.toString());
+            System.out.println(empre.toString2());
         }
 
     }
@@ -34,16 +34,14 @@ public class AdministracionEmprendedores {
         if((direccion==null||direccion=="")&&(sitioWeb==null||sitioWeb=="")){
             Emprendedor new_Emprendedor = new Emprendedor(id, nombre, telefono, email, nomResponsable, redes, descripcion);
             ProyectoFeria.emprendedores.add(new_Emprendedor);
-        }
-        else if (direccion==null||direccion==""){
+        } else if (direccion==null||direccion==""){
             Emprendedor new_Emprendedor = new Emprendedor(redes, id, nombre, telefono, email, sitioWeb, nomResponsable, descripcion);
             ProyectoFeria.emprendedores.add(new_Emprendedor);
-        }
-        else if (sitioWeb==null||sitioWeb==""){
+        } else if (sitioWeb==null||sitioWeb==""){
             Emprendedor new_Emprendedor = new Emprendedor(id, nombre, telefono, email, direccion,  nomResponsable, redes, descripcion);
-        }
-        else{
-            Emprendedor new_Emprendedor = new Emprendedor(id, nombre, telefono, email, direccion, sitioWeb, nomResponsable, redes, descripcion);
+        } else {
+            //tring identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes_sociales, String servicio
+            Emprendedor new_Emprendedor = new Emprendedor(id, nombre, telefono, email, direccion, sitioWeb, nomResponsable, redes,descripcion);
             ProyectoFeria.emprendedores.add(new_Emprendedor);
         }
     }
