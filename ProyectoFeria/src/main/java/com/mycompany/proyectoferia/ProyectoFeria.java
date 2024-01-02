@@ -353,17 +353,19 @@ public class ProyectoFeria {
                                 
                                 break;
                             case 2:
-                                AdministracionAuspiciantes.info_Auspiciante();
+                                AdministracionAuspiciantes.info_Ausp();
                                 System.out.println("Ingrese el numero de el auspiciante que desea modificar: ");
                                 int numero;
                                 numero = scInput.nextInt();
                                 AdministracionAuspiciantes.modificarAuspiciante(auspiciantes.get(numero-1));
                                 break;
                             case 3:
+                                AdministracionFeria.info_ferias();
                                 Scanner sc3 = new Scanner(System.in);
                                 System.out.println("Ingrese el codigo de la feria: ");
                                 int codigo_feri = sc3.nextInt();
                                 sc3.nextLine();
+                                AdministracionAuspiciantes.info_Ausp();
                                 System.out.println("Ingrese la identificacion del auspiciante: ");
                                 String id_a = sc3.nextLine();
                                 AdministracionAuspiciantes.asignarFeria(codigo_feri, id_a);
@@ -474,6 +476,10 @@ public class ProyectoFeria {
         
         //String identificacion, String nombre, String telefono, String email, String nombre_de_responsable, ArrayList<Socials> redes_sociales, String sector_cubierto
         Auspiciante auspiciante = new Auspiciante("09121212", "ESPOL", "1234567891", "kevinricki-2002@hotmail.com", "Kevin", redes, TipoServicio.ALIMENTACIÓN);
+        Auspiciante auspiciante2 = new Auspiciante("123", "TUTY", "1234567891", "kevinricki-2002@hotmail.com", "Jaime", redes, TipoServicio.ALIMENTACIÓN);
+        
+        auspiciantes.add(auspiciante);
+        auspiciantes.add(auspiciante2);
         auspiciante.setIncluye_stand(true);
         feria1.getlAuspiciantes().add(auspiciante);
         

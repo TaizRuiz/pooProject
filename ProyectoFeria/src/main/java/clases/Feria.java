@@ -114,5 +114,7 @@ public class Feria {
         return "Feria{" + "codigo=" + codigo + ", nombre=" + nombre + ", fInicio=" + fInicio + ", lugar=" + lugar + ", numero de auspiciantes=" + lAuspiciantes.size() + '}';
     }
     
+    
+    
    
 }

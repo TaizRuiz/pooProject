@@ -38,7 +38,7 @@ public class Persona {
         this.sitio_web=sitio;
     }
     public Persona(String identificacion, String nombre,String telefono, String email, String direccion, String sitio_web, String nombre_responsable, ArrayList<Socials> redes){
-        this(redes, email, nombre, email, email, sitio_web, nombre);
+        this(redes, identificacion, nombre, telefono, email, sitio_web, nombre_responsable);
         this.sitio_web=sitio_web;
         this.direccion=direccion;
         
@@ -114,7 +114,9 @@ public class Persona {
     }
 
     
-    
+    public String toString2(){
+        return "Persona{" + "identificacion=" + identificacion + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + '}';
+    }
     
     
     
