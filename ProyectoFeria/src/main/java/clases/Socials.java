@@ -32,6 +32,11 @@ public class Socials {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    @Override
+    public String toString() {
+        return "Socials{" + "nombre_de_red_social=" + nombre_de_red_social + ", username=" + username + '}';
+    }
     
     
 }

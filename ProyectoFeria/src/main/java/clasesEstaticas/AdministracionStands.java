@@ -20,14 +20,22 @@ import java.util.Scanner;
  * @author Usuario
  */
 public class AdministracionStands {
-    
+   
     public static void distribucionStands(int cod){
         for(Feria f: ProyectoFeria.ferias){
             if (f.getCodigo()==cod){
                 Seccion[] secciones = f.getSecciones();
                 for (Seccion s: secciones){
                     Stand[] arr = s.getStands();
-                    System.out.println(arr);
+                    for (Stand stand: arr){
+                        if (stand.getPersona_responsable()!=null){
+                            System.out.println("["+stand.getCodigo()+"*]");
+                        }
+                        else{
+                            System.out.println("["+stand.getCodigo()+"]");
+                        }
+                        
+                    }
                 }
             }
         }

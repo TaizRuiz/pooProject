@@ -31,8 +31,19 @@ public class AdministracionEmprendedores {
     }
     
     public static void registrarEmprendedor(String id, String nombre, String telefono, String email, String direccion, String sitioWeb, String nomResponsable, String descripcion, ArrayList<Socials> redes){
+        
         if((direccion==null||direccion=="")&&(sitioWeb==null||sitioWeb=="")){
+            
             Emprendedor new_Emprendedor = new Emprendedor(id, nombre, telefono, email, nomResponsable, redes, descripcion);
+            System.out.println(id);
+            System.out.println(nombre);
+            System.out.println(telefono);
+            System.out.println(email);
+            System.out.println(direccion);
+            System.out.println(sitioWeb);
+            System.out.println(nomResponsable);
+            System.out.println(descripcion);
+            System.out.println(redes);
             ProyectoFeria.emprendedores.add(new_Emprendedor);
         }
         else if (direccion==null||direccion==""){

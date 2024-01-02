@@ -11,6 +11,7 @@ import java.time.LocalDate;
  * @author USUARIO
  */
 public class Stand {
+
     private static int num_codigo=1;
     private int codigo;
     private LocalDate fechaAsignacion;

@@ -14,6 +14,7 @@ import clasesEstaticas.AdministracionAuspiciantes;
 import clasesEstaticas.AdministracionEmprendedores;
 import static clasesEstaticas.AdministracionFeria.info_ferias;
 import static clasesEstaticas.AdministracionFeria.ver_info_feria;
+import clasesEstaticas.AdministracionStands;
 import enums.TipoServicio;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -173,54 +174,54 @@ public class ProyectoFeria {
                     op2=scInput.nextInt();
                         switch(op2){
                             case 1:
-                                 Scanner sc = new Scanner(System.in);
+                                 Scanner scE = new Scanner(System.in);
                                 System.out.println("Ingrese su identificacion: ");
                                 String id;
-                                id = sc.nextLine();
+                                id = scE.nextLine();
                                 
                                 System.out.println("Ingrese el nombre de la empresa: ");
                                 String nombre;
-                                nombre = sc.nextLine();
+                                nombre = scE.nextLine();
                                 
                                 System.out.println("Ingrese el nombre de responsable: ");
                                 String nombre_responsable;
-                                nombre_responsable = sc.nextLine();
+                                nombre_responsable = scE.nextLine();
                                 
                                 System.out.println("Ingrese su numero de telefono: ");
                                 String telefono;
-                                telefono = sc.nextLine();
+                                telefono = scE.nextLine();
                                 
                                 System.out.println("Ingrese su correo: ");
                                 String correo;
-                                correo = sc.nextLine();
+                                correo = scE.nextLine();
                                 
                                 System.out.println("Ingrese su direccion: ");
                                 String direccion;
-                                direccion = sc.nextLine();
+                                direccion = scE.nextLine();
                                 
                                 System.out.println("Ingrese el sitio web: ");
                                 String sitio;
-                                sitio = sc.nextLine();
+                                sitio = scE.nextLine();
                                 
                                 System.out.println("Ingrese descripcion: ");
                                 String descripcion;
-                                descripcion = sc.nextLine();
+                                descripcion = scE.nextLine();
                          
                                 System.out.println("Ingrese el numero de red social que tiene: ");
-                                int nume = sc.nextInt();
+                                int nume = scE.nextInt();
                                 ArrayList<Socials> redes = new ArrayList<>();
-                                Scanner sc2 = new Scanner(System.in);
+                                Scanner sc2E = new Scanner(System.in);
                                 for(int i = 1; i <= nume; i ++){
                                     
                                     System.out.println("Ingrese el nombre de la red social: ");
-                                    String red = sc2.nextLine();
+                                    String red = sc2E.nextLine();
                                     System.out.println("Ingrese que nombre de usuario tiene esa red social: ");
-                                    String nomb = sc2.nextLine();
+                                    String nomb = sc2E.nextLine();
                                     
                                     Socials social = new Socials(red,nomb);
                                     redes.add(social);
                                 }
-                               
+                                
                                 //String id, String nombre, String telefono, String email, String direccion, String sitioWeb, String nomResponsable, String descripcion, ArrayList<Socials> redes
                                 AdministracionEmprendedores.registrarEmprendedor(id, nombre,telefono, correo, direccion, sitio, nombre_responsable, descripcion, redes);
                                  
@@ -397,6 +398,15 @@ public class ProyectoFeria {
                         op4=scInput.nextInt();
                         switch(op4){
                             case 1:
+                                // int codStand, int codFeria
+                                AdministracionFeria.info_ferias();
+                                Scanner s=new Scanner(System.in);
+                                System.out.println("Ingrese el codigo de la Feria: ");
+                                int codigo = s.nextInt();
+                                AdministracionStands.distribucionStands(codigo);
+                                System.out.println("Ingrese el codigo del Stand: ");
+                                int codigo_Stand = s.nextInt();
+                                AdministracionStands.reservarStand(codigo_Stand, codigo);
                                 break;
                             case 2:
                                 break;
